@@ -229,7 +229,7 @@ $(document).ready(() => {
     init: (hash === '' || hash === '#') ? 'opened' : 'closed',
     toggler: '#toggle-sidebar',
     quitter: '.close-sidebar',
-    align: "right",
+    align: 'right',
   });
   // and make it visible again
   document.getElementById('sidebar').style.visibility = 'visible';
