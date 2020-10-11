@@ -226,7 +226,7 @@ $(document).ready(() => {
 
   // Activate sidebar plugin
   $('#sidebar').simplerSidebar({
-    init: (hash === '' || hash === '#') ? 'opened' : 'closed',
+    open: (hash === '' || hash === '#') ? 'opened' : 'closed',
     toggler: '#toggle-sidebar',
     quitter: '.close-sidebar',
     align: 'right',
