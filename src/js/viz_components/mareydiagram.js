@@ -709,7 +709,7 @@ export default class MareyDiagram {
   computeTrips() {
     const trips = [];
     // Compute drawing information for the trips of the reference journey pattern
-    for (const { code, staticSchedule, firstAndLastTimes, realTimeData, markers } of
+    for (const { code, tripLabel, staticSchedule, firstAndLastTimes, realTimeData, markers } of
       this.journeyPatternMix.referenceJP.vehicleJourneys) {
       const tripMarkers = [];
       // If there are markers to add, add them
@@ -745,6 +745,7 @@ export default class MareyDiagram {
       }
       trips.push({
         code,
+        tripLabel,
         // For the reference journey pattern there is only one sequence
         staticSequences: [staticSchedule.map(({ time, distance }) => ({ time, distance }))],
         realtimeSequences: realTimeData.map(({ vehicleNumber, positions }) => ({
