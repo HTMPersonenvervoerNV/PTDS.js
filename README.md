@@ -16,7 +16,7 @@ Build distribution
     $ yarn build
 
 ## Live demo
-[**Here**](https://plannerstack-ptds.netlify.com/)
+[**Here**](https://ptds.htmwiki.nl/)
 
 ## License
 See `LICENSE`.
