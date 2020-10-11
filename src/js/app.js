@@ -191,7 +191,7 @@ const formSubmit = (event) => {
 
 $(document).ready(() => {
   // As soon as the document is ready, fetch the index file
-  const indexFileURL = 'https://services.opengeo.nl/ptds/index.json';
+  const indexFileURL = 'https://ptds.htmwiki.nl/index.json';
   fetch(indexFileURL).then(r => r.json())
     // Process the index file when finished loading it
     .then((data) => {
