@@ -1,6 +1,6 @@
 import * as log from 'loglevel';
 import $ from 'jquery';
-import 'simpler-sidebar';
+import '@ctrlmaniac/simpler-sidebar';
 
 import PTDS from './ptds';
 
@@ -227,10 +227,9 @@ $(document).ready(() => {
   // Activate sidebar plugin
   $('#sidebar').simplerSidebar({
     init: (hash === '' || hash === '#') ? 'opened' : 'closed',
-    selectors: {
-      trigger: '#toggle-sidebar',
-      quitter: '.close-sidebar',
-    },
+    toggler: '#toggle-sidebar',
+    quitter: '.close-sidebar',
+    align: "right",
   });
   // and make it visible again
   document.getElementById('sidebar').style.visibility = 'visible';
