@@ -977,12 +977,25 @@ export default class MareyDiagram {
 
       // Get the current mouse position
       const [xPos, yPos] = d3.mouse(overlay.node());
+
+      // Position the label, keeping it within boundaries
+      let dx = 0;
+      let dy = -5;
+      if ((that.dims.marey.innerWidth - xPos) < 50) {
+        dx = -50;
+      }
+      if (xPos < 100) {
+        dy = 25;
+        dx = 30;
+      }
+
       // Add label with the code of the trip next to the mouse cursor
       tripSel.append('text')
         .attr('class', 'tripLabel')
         .attr('x', xPos)
         .attr('y', yPos)
-        .attr('dy', -10)
+        .attr('dy', dy)
+        .attr('dx', dx)
         .text(({ tripLabel }) => tripLabel);
       // Add 'selected' class to the trip SVG group
       tripSel.classed('selected', true);
