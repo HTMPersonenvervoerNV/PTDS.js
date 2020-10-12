@@ -1169,8 +1169,25 @@ export default class MareyDiagram {
     const tripMarkersGroup = tripMarkersSel.enter().append('g').attr('class', 'marker');
     tripMarkersGroup
       .on('mouseover', function f() {
+        // TODO: how to calculate the position of the marker...
+        const [xPos] = d3.mouse(overlay.node());
+        let anchor = 'start';
+        let dx = 0;
+        let dy = 0;
+        if ((that.dims.marey.innerWidth - xPos) < 50) {
+          anchor = 'end';
+        }
+        if (xPos < 100) {
+          dx = 5;
+          dy = 25;
+        }
         d3event.stopPropagation();
-        d3.select(this).append('text').attr('class', 'message').text(({ message, url }) => `${message} | ${url}`);
+        d3.select(this).append('text')
+          .attr('class', 'message')
+          .attr('text-anchor', anchor)
+          .attr('dx', dx)
+          .attr('dy', dy)
+          .text(({ message, url }) => `${message} | ${url}`);
       })
       .on('mouseout', function f() {
         d3event.stopPropagation();
